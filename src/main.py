@@ -11,8 +11,9 @@ class main():
         # initialize the pygame module
         pygame.init()
         # load and set the logo
-        # logo = pygame.image.load("logo32x32.png")
-        # pygame.display.set_icon(logo)
+        asset_path = os.path.join('./assets', 'icon.png')
+        logo = pygame.image.load(asset_path)
+        pygame.display.set_icon(logo)
         pygame.display.set_caption("Darkryder's Awesome Game")
         
         # create a surface on screen that has the size of 240 x 180
