@@ -16,7 +16,7 @@ class main():
         # initialize the pygame module
         pygame.init()
         # load and set the logo
-        asset_path = os.path.join('./assets', 'icon.png')
+        asset_path = os.path.join('../assets', 'icon.png')
         logo = pygame.image.load(asset_path)
         pygame.display.set_icon(logo)
         pygame.display.set_caption("Darkryder's Awesome Game")
@@ -28,7 +28,7 @@ class main():
         self._running = True
     
     def _loadAssets(self):
-        asset_path = os.path.join('./assets', 'Face.png')
+        asset_path = os.path.join('../assets', 'Face.png')
         self._face = pygame.image.load(asset_path)
 
     def _update(self):
