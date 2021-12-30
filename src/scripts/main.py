@@ -32,7 +32,7 @@ class main():
         self._running = True
     
     def _loadAssets(self):
-        self.face_ = Sprite('Face.png')
+        self.face_ = Sprite('Face.png', 10, 100)
         self.all_sprites_list.add(self.face_)
         pass
 
