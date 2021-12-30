@@ -3,6 +3,8 @@ import os
 import pygame
 from pygame import color
 
+from asset_managers.Sprite import Sprite
+
 # define a main function
 class main():
 
@@ -16,28 +18,33 @@ class main():
         # initialize the pygame module
         pygame.init()
         # load and set the logo
-        asset_path = os.path.join('./assets', 'icon.png')
+        asset_path = os.path.join('../assets', 'icon.png')
         logo = pygame.image.load(asset_path)
         pygame.display.set_icon(logo)
         pygame.display.set_caption("Darkryder's Awesome Game")
         
         # create a surface on screen that has the size of _screenWidth x _screenHeight
         self._screen = pygame.display.set_mode((self._screenWidth,self._screenHeight))
+
+        self.all_sprites_list = pygame.sprite.Group()
         
         # define a variable to control the main loop
         self._running = True
     
     def _loadAssets(self):
-        asset_path = os.path.join('./assets', 'Face.png')
-        self._face = pygame.image.load(asset_path)
+        self.face_ = Sprite('Face.png')
+        self.all_sprites_list.add(self.face_)
+        pass
 
     def _update(self):
+        self.face_.update()
+        self.all_sprites_list.update()
         pass
 
     def _draw(self):
          # fill the screen with cornflower blue first
         self._screen.fill(self._bgColor)
-        self._screen.blit(self._face, (50,50))
+        self.all_sprites_list.draw(self._screen)
         pygame.display.flip()
     
     def __init__(self):
