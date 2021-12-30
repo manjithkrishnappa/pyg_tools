@@ -1,9 +1,11 @@
 # import the pygame module, so you can use it
 import os
+from typing import Text
 import pygame
 from pygame import color
 
 from asset_managers.Sprite import Sprite
+from asset_managers.Text import Text
 
 # define a main function
 class main():
@@ -27,13 +29,17 @@ class main():
         self._screen = pygame.display.set_mode((self._screenWidth,self._screenHeight))
 
         self.all_sprites_list = pygame.sprite.Group()
-        
+
+        pygame.font.init()
+
         # define a variable to control the main loop
         self._running = True
     
     def _loadAssets(self):
         self.face_ = Sprite('Face.png', 10, 100)
         self.all_sprites_list.add(self.face_)
+
+        self.info_ = Text('Hello World', 500, 250)
         pass
 
     def _update(self):
@@ -45,6 +51,7 @@ class main():
          # fill the screen with cornflower blue first
         self._screen.fill(self._bgColor)
         self.all_sprites_list.draw(self._screen)
+        self.info_.Draw(self._screen)
         pygame.display.flip()
     
     def __init__(self):
