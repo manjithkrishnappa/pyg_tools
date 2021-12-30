@@ -32,20 +32,18 @@ class main():
         self._running = True
     
     def _loadAssets(self):
-        # asset_path = os.path.join('../assets', 'Face.png')
-        # self._face = pygame.image.load(asset_path)
         self.face_ = Sprite('Face.png')
         self.all_sprites_list.add(self.face_)
         pass
 
     def _update(self):
+        self.face_.update()
         self.all_sprites_list.update()
         pass
 
     def _draw(self):
          # fill the screen with cornflower blue first
         self._screen.fill(self._bgColor)
-        # self._screen.blit(self._face, (50,50))
         self.all_sprites_list.draw(self._screen)
         pygame.display.flip()
     
