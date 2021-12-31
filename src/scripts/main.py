@@ -16,6 +16,8 @@ class main():
     # Cornflower blue
     _bgColor = [100, 149, 237]
 
+    _tempCounter = 0
+
     def _initialize(self):
         # initialize the pygame module
         pygame.init()
@@ -45,6 +47,10 @@ class main():
     def _update(self):
         self.face_.update()
         self.all_sprites_list.update()
+
+        self._tempCounter += 1
+        self.info_.SetText('Frame Counter: ' + str(self._tempCounter))
+
         pass
 
     def _draw(self):
