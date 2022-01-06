@@ -22,7 +22,8 @@ class main():
         # initialize the pygame module
         pygame.init()
         # load and set the logo
-        asset_path = os.path.join('../assets', 'icon.png')
+        print (os.getcwd())
+        asset_path = os.path.join(os.getcwd(), './assets/icon.png')
         logo = pygame.image.load(asset_path)
         pygame.display.set_icon(logo)
         pygame.display.set_caption("Darkryder's Awesome Game")
