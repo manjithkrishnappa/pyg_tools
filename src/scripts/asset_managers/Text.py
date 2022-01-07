@@ -3,7 +3,7 @@ import pygame
 class Text():
 
     def __init__(self, text, PosX, PosY):
-        self.font = pygame.font.SysFont('freesanbold.ttf', 50)
+        self.font = pygame.font.SysFont('freesanbold.ttf', 15)
         self.SetText(text)
         self.SetPosition(PosX, PosY)
         pass
@@ -14,7 +14,7 @@ class Text():
     def SetPosition(self, PosX, PosY):
         self.textRect = self.text.get_rect()
         # setting center for the first text
-        self.textRect.center = (PosX, PosY)
+        self.textRect.topleft = (PosX, PosY)
 
     def Draw(self, _screen):
         _screen.blit(self.text, self.textRect)

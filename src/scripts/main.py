@@ -45,20 +45,20 @@ class main():
         self.face_ = Sprite('Face.png', 10, 100)
         self.all_sprites_list.add(self.face_)
 
-        self.info_ = Text('Hello World', 500, 250)
+        self.FPS_Label_ = Text('FPS: ', 0, 0)
         pass
 
     def _update(self):
         self.face_.update()
         self.all_sprites_list.update()
-        self.info_.SetText('FPS: {:.2f}'.format(self._fpsClock.get_fps()))
+        self.FPS_Label_.SetText('FPS: {:.2f}'.format(self._fpsClock.get_fps()))
         pass
 
     def _draw(self):
          # fill the screen with cornflower blue first
         self._screen.fill(self._bgColor)
         self.all_sprites_list.draw(self._screen)
-        self.info_.Draw(self._screen)
+        self.FPS_Label_.Draw(self._screen)
         pygame.display.flip()
     
     def __init__(self):
