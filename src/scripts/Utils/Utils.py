@@ -1,6 +1,7 @@
 import sys
 import os
 
+
 class Utils():
     @staticmethod
     def resource_path(relative_path):
@@ -8,5 +9,5 @@ class Utils():
             # PyInstaller creates a temp folder and stores path in _MEIPASS
             base_path = sys._MEIPASS
         except Exception:
-            base_path = os.getcwd() #os.path.abspath(".")
+            base_path = os.getcwd()
         return os.path.join(base_path, relative_path)

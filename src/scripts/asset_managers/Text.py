@@ -1,5 +1,6 @@
 import pygame
 
+
 class Text():
 
     def __init__(self, text, PosX, PosY):
@@ -10,7 +11,7 @@ class Text():
 
     def SetText(self, text):
         self.text = self.font.render(text, True, (255, 255, 255))
-    
+
     def SetPosition(self, PosX, PosY):
         self.textRect = self.text.get_rect()
         # setting center for the first text
