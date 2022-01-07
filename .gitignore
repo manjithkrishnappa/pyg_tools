@@ -1,1 +1,5 @@
+src/scripts/__pycache__/
+src/scripts/Utils/__pycache__/**
 src/scripts/asset_managers/__pycache__/**
+src/scripts/build/
+src/scripts/dist/

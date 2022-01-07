@@ -4,6 +4,7 @@ from typing import Text
 import pygame
 from pygame import color
 
+from Utils.Utils import Utils
 from asset_managers.Sprite import Sprite
 from asset_managers.Text import Text
 
@@ -22,8 +23,7 @@ class main():
         # initialize the pygame module
         pygame.init()
         # load and set the logo
-        print (os.getcwd())
-        asset_path = os.path.join(os.getcwd(), './assets/icon.png')
+        asset_path = Utils.resource_path('./assets/icon.png')
         logo = pygame.image.load(asset_path)
         pygame.display.set_icon(logo)
         pygame.display.set_caption("Darkryder's Awesome Game")
