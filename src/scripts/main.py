@@ -17,7 +17,10 @@ class main():
     # Cornflower blue
     _bgColor = [100, 149, 237]
 
-    _tempCounter = 0
+    # Set FPS to 0 if we dont want v-sync
+    _FPS = 60
+    _fpsClock = pygame.time.Clock()
+
 
     def _initialize(self):
         # initialize the pygame module
@@ -48,10 +51,7 @@ class main():
     def _update(self):
         self.face_.update()
         self.all_sprites_list.update()
-
-        self._tempCounter += 1
-        self.info_.SetText('Frame Counter: ' + str(self._tempCounter))
-
+        self.info_.SetText('FPS: {:.2f}'.format(self._fpsClock.get_fps()))
         pass
 
     def _draw(self):
@@ -74,6 +74,10 @@ class main():
                     self._running = False
             self._update()
             self._draw()
+            # Lets handle the FPS
+            self._fpsClock.tick(self._FPS)
+            print ('Time spent in this frame is: ' + str(self._fpsClock.get_time()))
+            print ('FPS: ' + str(self._fpsClock.get_fps()))
 
      
      
