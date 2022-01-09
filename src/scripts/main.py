@@ -2,6 +2,7 @@
 import pygame
 
 from Utils.Utils import Utils
+from Utils.Settings import Config
 from asset_managers.Sprite import Sprite
 from asset_managers.Text import Text
 
@@ -9,16 +10,11 @@ from asset_managers.Text import Text
 class main():
 
     _running = False
-    _screenWidth = 800
-    _screenHeight = 600
-    # Cornflower blue
-    _bgColor = [100, 149, 237]
-
-    # Set FPS to 0 if we dont want v-sync
-    _FPS = 60
     _fpsClock = pygame.time.Clock()
 
     def _initialize(self):
+        Config.getInstance().initialize()
+
         # initialize the pygame module
         pygame.init()
         # load and set the logo
@@ -28,7 +24,7 @@ class main():
         pygame.display.set_caption("Darkryder's Awesome Game")
 
         # create a surface on screen that has the size of _screenWidth x _screenHeight
-        self._screen = pygame.display.set_mode((self._screenWidth, self._screenHeight))
+        self._screen = pygame.display.set_mode((Config.getInstance().screenWidth, Config.getInstance().screenHeight))
 
         self.all_sprites_list = pygame.sprite.Group()
 
@@ -52,7 +48,7 @@ class main():
 
     def _draw(self):
         # fill the screen with cornflower blue first
-        self._screen.fill(self._bgColor)
+        self._screen.fill(Config.getInstance().bgColor)
         self.all_sprites_list.draw(self._screen)
         self.FPS_Label_.Draw(self._screen)
         pygame.display.flip()
@@ -71,11 +67,11 @@ class main():
             self._update()
             self._draw()
             # Lets handle the FPS
-            self._fpsClock.tick(self._FPS)
+            self._fpsClock.tick(Config.getInstance().FPS)
 
 
 # run the main function only if this module is executed as the main script
 # (if you import this as a module then nothing is executed)
-if __name__== "__main__":
+if __name__ == "__main__":
     # call the main function
     main = main()
